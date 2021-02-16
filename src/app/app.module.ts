@@ -1,3 +1,4 @@
+import { GithubComponent } from './github/github.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -5,7 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { SharedModule } from './shared/shared.module';
 import { GithubModule } from './github/github.module';
-
+import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -16,11 +17,13 @@ import { AppComponent } from './app.component';
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-
     SharedModule,
-    GithubModule
+    GithubModule,
+    RouterModule.forRoot([
+      { path: '**', component: GithubComponent },
+    ])
   ],
-  providers: [],
+ [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
