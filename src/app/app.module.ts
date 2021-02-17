@@ -8,10 +8,13 @@ import { SharedModule } from './shared/shared.module';
 import { GithubModule } from './github/github.module';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
+import { DodCalendarComponent } from './dod-calendar/dod-calendar.component';
+import { DatePipe} from '@angular/common';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DodCalendarComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +26,9 @@ import { AppComponent } from './app.component';
       { path: '**', component: GithubComponent },
     ])
   ],
- [],
+  providers: [
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
