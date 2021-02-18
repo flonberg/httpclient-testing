@@ -1,7 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DodCalendarComponent} from './dod-calendar.component';
-
 
 describe('DodCalendarComponent', () => {
   let component: DodCalendarComponent;
@@ -26,7 +24,7 @@ describe('DodCalendarComponent', () => {
   });
 
 
-  describe('goForwardToMonday  ', () =>{
+  describe('goTooMonday  ', () =>{
     let dodComp = new DodCalendarComponent();
     it('should return 1 for Sat  February 13, 2021', () =>{
       let result = dodComp.goToMonday( new Date('February 13, 2021'));
@@ -46,6 +44,10 @@ describe('DodCalendarComponent', () => {
     it('shouldContaint Mar for  Sat  February 13, 2021', () =>{
       let result = dodComp.makeMonth(1, new Date('February 13, 2021'));
       expect(result.monthName).toContain('March')
+    })
+    it('firstDateString should contain 29 for  , arg = 1, March 18, 2021', () =>{
+      let result = dodComp.makeMonth(1, new Date('March 13, 2021'));
+      expect(result.firstDateOnCalendarString).toContain('29')
     })
   })
 })
