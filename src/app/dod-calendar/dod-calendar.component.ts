@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatePipe} from '@angular/common';
+import * as moment from 'moment';
 interface monthSpec {
   date?: Date,
   monthNumber: number,
@@ -49,6 +50,16 @@ export class DodCalendarComponent implements OnInit {
     monthSpec.firstDateOnCalendarString = LdatePipe.transform(monthSpec.firstDateOnCalendar, 'Y-m-d')
     return monthSpec;
    }
+   goToMondayMoment(dt: moment.Moment){
+    while  (dt.day()== 6 || dt.day() == 0 )           // if it is a weekend go FORWARD
+      dt.add(1, 'd')
+    if (dt.day() > 1 && dt.day() < 6)                 // if it is a weekday go BACKWARD
+      while (dt.day() > 1)
+        dt.subtract(1, 'd')
+  console.log("66 goToMonday %o", dt) 
+  return dt;
+   }
+
    /**
    *  Goes forward to Monday if arg is a weekend, or back to Monday if arg is weekday other than
    */
