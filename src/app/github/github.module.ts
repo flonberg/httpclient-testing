@@ -1,3 +1,4 @@
+import { DodCalendarComponent } from './../dod-calendar/dod-calendar.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -9,7 +10,8 @@ import { GithubComponent } from './github.component';
     CommonModule,
     ReactiveFormsModule
   ],
-  declarations: [GithubComponent],
-  exports: [GithubComponent]
+  declarations: [GithubComponent,
+  DodCalendarComponent],
+  exports: [GithubComponent, DodCalendarComponent]
 })
 export class GithubModule { }

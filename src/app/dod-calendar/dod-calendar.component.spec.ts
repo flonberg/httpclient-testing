@@ -41,7 +41,7 @@ describe('DodCalendarComponent', () => {
   })
   describe('makeMontN ', () =>{
     let dodComp = new DodCalendarComponent();
-    it('shouldContaint Mar for  Sat  February 13, 2021', () =>{
+    it('MonthNameshould contain Mar for  Sat  February 13, 2021', () =>{
       let result = dodComp.makeMonth(1, new Date('February 13, 2021'));
       expect(result.monthName).toContain('March')
     })
